@@ -59,7 +59,7 @@
                 <span class="text-yellow-300 ml-2">✨</span>
             </p>
             <p class="text-purple-200 max-w-2xl mx-auto mb-6">
-                최대 9점까지 품목을 자유롭게 선택해 나만의 Supercharge한 데스크를 만들어보세요 🧑🏻‍💻
+                최대 10점까지 품목을 자유롭게 선택해 나만의 Supercharge한 데스크를 만들어보세요 🧑🏻‍💻
             </p>
             <div class="flex justify-center">
                 <a href="https://www.notion.so/22593b2d257380f9b196eca8f4b44dc0?source=copy_link" 
@@ -78,7 +78,7 @@
                 <div class="flex items-center space-x-6">
                     <div class="flex items-center">
                         <span class="text-yellow-400 mr-2">⭐</span>
-                        <span class="font-semibold" id="points-display">0.0 / 9 점</span>
+                        <span class="font-semibold" id="points-display">0 / 10 점</span>
                     </div>
                     <div class="w-48 bg-purple-900 rounded-full h-3">
                         <div id="progress-bar" class="bg-gradient-to-r from-yellow-400 to-orange-400 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
@@ -189,7 +189,7 @@
             { id: 14, name: "데스크정리함 B", level: 3, points: 3, category: "책상 위 정리 아이템" },
             
             // 다용도 오거나이저 (레벨순)
-            { id: 6, name: "오거나이저 A", level: 1.5, points: 1.5, category: "다용도 오거나이저" },
+            { id: 6, name: "오거나이저 A", level: 2, points: 2, category: "다용도 오거나이저" },
             { id: 10, name: "오거나이저 B", level: 2, points: 2, category: "다용도 오거나이저" },
             { id: 16, name: "데스크 매트", level: 3, points: 3, category: "다용도 오거나이저" },
             { id: 17, name: "오거나이저 C", level: 4, points: 4, category: "다용도 오거나이저" },
@@ -201,7 +201,7 @@
             { id: 20, name: "LED 스탠드 B", level: 4, points: 4, category: "무드 & 집중 조명" },
             
             // 데스크 액세서리 (레벨순)
-            { id: 3, name: "가습기", level: 1.5, points: 1.5, category: "데스크 액세서리" },
+            { id: 3, name: "가습기", level: 1, points: 1, category: "데스크 액세서리" },
             { id: 7, name: "무선충전기", level: 2, points: 2, category: "데스크 액세서리" },
             { id: 8, name: "탁상용 선풍기", level: 2, points: 2, category: "데스크 액세서리" },
             
@@ -211,28 +211,26 @@
             { id: 15, name: "발받침대", level: 3, points: 3, category: "보조 아이템" },
             
             // 디바이스 거치대 (레벨순)
-            { id: 4, name: "노트북 거치대", level: 1.5, points: 1.5, category: "디바이스 거치대" },
-            { id: 5, name: "독서대", level: 1.5, points: 1.5, category: "디바이스 거치대" },
+            { id: 4, name: "노트북 거치대", level: 1, points: 1, category: "디바이스 거치대" },
+            { id: 5, name: "독서대", level: 2, points: 2, category: "디바이스 거치대" },
             { id: 11, name: "핸드폰 거치대", level: 2, points: 2, category: "디바이스 거치대" },
             
             // 프리미엄 아이템 (레벨순)
-            { id: 22, name: "모니터암", level: 4.5, points: 4.5, category: "프리미엄 아이템" },
+            { id: 22, name: "모니터암", level: 5, points: 5, category: "프리미엄 아이템" },
             { id: 21, name: "마사지기", level: 5, points: 5, category: "프리미엄 아이템" },
             { id: 23, name: "포터블 모니터", level: 5, points: 5, category: "프리미엄 아이템" }
         ];
 
         let selectedItems = {};
         let totalPoints = 0;
-        const maxPoints = 9;
+        const maxPoints = 10;
 
         function getLevelColor(level) {
             const colors = {
                 1: "level-1",
-                1.5: "level-1-5", 
                 2: "level-2",
                 3: "level-3",
                 4: "level-4",
-                4.5: "level-4",
                 5: "level-5"
             };
             return colors[level] || "bg-gray-500";
@@ -261,7 +259,7 @@
 
             const totalCount = Object.values(selectedItems).reduce((sum, qty) => sum + qty, 0);
             
-            document.getElementById('points-display').textContent = `${totalPoints.toFixed(1)} / ${maxPoints} 점`;
+            document.getElementById('points-display').textContent = `${totalPoints} / ${maxPoints} 점`;
             document.getElementById('count-display').textContent = `${totalCount}개 선택됨`;
             document.getElementById('progress-bar').style.width = `${(totalPoints / maxPoints) * 100}%`;
             
@@ -281,7 +279,7 @@
                 summaryDiv.style.display = 'block';
                 document.getElementById('summary-count').textContent = totalCount;
                 document.getElementById('total-count').textContent = `${totalCount}개 선택`;
-                document.getElementById('total-points').textContent = `${totalPoints.toFixed(1)} / ${maxPoints}점`;
+                document.getElementById('total-points').textContent = `${totalPoints} / ${maxPoints}점`;
                 
                 selectedItemsDiv.innerHTML = '';
                 Object.entries(selectedItems).forEach(([itemId, quantity]) => {
@@ -295,7 +293,7 @@
                         </div>
                         <div class="flex items-center space-x-4">
                             <span class="text-yellow-400">Level ${item.level}</span>
-                            <span class="text-purple-300">${(item.points * quantity).toFixed(1)}점</span>
+                            <span class="text-purple-300">${(item.points * quantity)}점</span>
                         </div>
                     `;
                     selectedItemsDiv.appendChild(itemDiv);
@@ -342,7 +340,7 @@
                 'entry.1285911199': userName,
                 'entry.1334944395': userDepartment,
                 'entry.1505919809': itemsText.trim(),
-                'entry.1855956162': totalPoints.toFixed(1),
+                'entry.1855956162': totalPoints,
                 'entry.389880907': totalCount.toString()
             });
 
