@@ -94,6 +94,104 @@
 
     <!-- Items Grid -->
     <div class="max-w-6xl mx-auto px-6 py-8">
+        <!-- 점수 분포 표 -->
+        <div class="mb-12 bg-gradient-to-r from-purple-800 to-indigo-800 rounded-2xl p-8 shadow-2xl">
+            <h2 class="text-2xl font-bold text-center text-yellow-400 mb-6">📊 전체 아이템 점수 분포</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                <!-- 1점 -->
+                <div class="bg-purple-900 bg-opacity-50 rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="level-1 px-3 py-1 rounded-full text-xs font-bold text-white">Level 1</div>
+                    </div>
+                    <h3 class="text-center text-yellow-400 font-bold mb-2">1점 (4개)</h3>
+                    <div class="text-sm text-purple-200 space-y-1">
+                        <div>• 컵홀더&헤드셋 걸이</div>
+                        <div>• 손목받침대</div>
+                        <div>• 가습기</div>
+                        <div>• 노트북 거치대</div>
+                    </div>
+                </div>
+                
+                <!-- 2점 -->
+                <div class="bg-purple-900 bg-opacity-50 rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="level-2 px-3 py-1 rounded-full text-xs font-bold text-white">Level 2</div>
+                    </div>
+                    <h3 class="text-center text-yellow-400 font-bold mb-2">2점 (9개)</h3>
+                    <div class="text-sm text-purple-200 space-y-1">
+                        <div>• 독서대</div>
+                        <div>• 오거나이저 A</div>
+                        <div>• 무선충전기</div>
+                        <div>• 탁상용 선풍기</div>
+                        <div>• 무드등</div>
+                        <div>• 오거나이저 B</div>
+                        <div>• 핸드폰 거치대</div>
+                        <div>• 데스크정리함 A</div>
+                        <div>• 모니터받침대</div>
+                    </div>
+                </div>
+                
+                <!-- 3점 -->
+                <div class="bg-purple-900 bg-opacity-50 rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="level-3 px-3 py-1 rounded-full text-xs font-bold text-white">Level 3</div>
+                    </div>
+                    <h3 class="text-center text-yellow-400 font-bold mb-2">3점 (3개)</h3>
+                    <div class="text-sm text-purple-200 space-y-1">
+                        <div>• 데스크정리함 B</div>
+                        <div>• 발받침대</div>
+                        <div>• 데스크 매트</div>
+                    </div>
+                </div>
+                
+                <!-- 4점 -->
+                <div class="bg-purple-900 bg-opacity-50 rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="level-4 px-3 py-1 rounded-full text-xs font-bold text-white">Level 4</div>
+                    </div>
+                    <h3 class="text-center text-yellow-400 font-bold mb-2">4점 (4개)</h3>
+                    <div class="text-sm text-purple-200 space-y-1">
+                        <div>• 오거나이저 C</div>
+                        <div>• 오거나이저 D</div>
+                        <div>• LED 스탠드 A</div>
+                        <div>• LED 스탠드 B</div>
+                    </div>
+                </div>
+                
+                <!-- 5점 -->
+                <div class="bg-purple-900 bg-opacity-50 rounded-lg p-4">
+                    <div class="flex items-center justify-center mb-3">
+                        <div class="level-5 px-3 py-1 rounded-full text-xs font-bold text-white">Level 5</div>
+                    </div>
+                    <h3 class="text-center text-yellow-400 font-bold mb-2">5점 (3개)</h3>
+                    <div class="text-sm text-purple-200 space-y-1">
+                        <div>• 모니터암</div>
+                        <div>• 마사지기</div>
+                        <div>• 포터블 모니터</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 조합 예시 -->
+            <div class="mt-8 pt-6 border-t border-purple-600">
+                <h3 class="text-lg font-bold text-center text-purple-200 mb-4">💡 조합 예시</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-purple-900 bg-opacity-30 rounded-lg p-3 text-center">
+                        <div class="text-yellow-400 font-bold">고급형</div>
+                        <div class="text-purple-200">5점 × 2개 = 10점</div>
+                    </div>
+                    <div class="bg-purple-900 bg-opacity-30 rounded-lg p-3 text-center">
+                        <div class="text-yellow-400 font-bold">균형형</div>
+                        <div class="text-purple-200">4점 + 3점 + 2점 + 1점 = 10점</div>
+                    </div>
+                    <div class="bg-purple-900 bg-opacity-30 rounded-lg p-3 text-center">
+                        <div class="text-yellow-400 font-bold">실용형</div>
+                        <div class="text-purple-200">2점 × 5개 = 10점</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="items-grid">
             <!-- Items will be populated by JavaScript -->
         </div>
@@ -196,7 +294,7 @@
             { id: 18, name: "오거나이저 D", level: 4, points: 4, category: "다용도 오거나이저" },
             
             // 무드 & 집중 조명 (레벨순)
-            { id: 9, name: "전구", level: 2, points: 2, category: "무드 & 집중 조명" },
+            { id: 9, name: "무드등", level: 2, points: 2, category: "무드 & 집중 조명" },
             { id: 19, name: "LED 스탠드 A", level: 4, points: 4, category: "무드 & 집중 조명" },
             { id: 20, name: "LED 스탠드 B", level: 4, points: 4, category: "무드 & 집중 조명" },
             
