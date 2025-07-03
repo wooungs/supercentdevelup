@@ -183,41 +183,41 @@
 
     <script>
         const items = [
-            // 책상 위 정리 아이템
+            // 책상 위 정리 아이템 (레벨순)
             { id: 1, name: "컵홀더&헤드셋 걸이", level: 1, points: 1, category: "책상 위 정리 아이템" },
             { id: 13, name: "데스크정리함 A", level: 2, points: 2, category: "책상 위 정리 아이템" },
             { id: 14, name: "데스크정리함 B", level: 3, points: 3, category: "책상 위 정리 아이템" },
             
-            // 다용도 오거나이저
+            // 다용도 오거나이저 (레벨순)
             { id: 6, name: "오거나이저 A", level: 1.5, points: 1.5, category: "다용도 오거나이저" },
             { id: 10, name: "오거나이저 B", level: 2, points: 2, category: "다용도 오거나이저" },
+            { id: 16, name: "데스크 매트", level: 3, points: 3, category: "다용도 오거나이저" },
             { id: 17, name: "오거나이저 C", level: 4, points: 4, category: "다용도 오거나이저" },
             { id: 18, name: "오거나이저 D", level: 4, points: 4, category: "다용도 오거나이저" },
-            { id: 16, name: "데스크 매트", level: 3, points: 3, category: "다용도 오거나이저" },
             
-            // 무드 & 집중 조명
+            // 무드 & 집중 조명 (레벨순)
             { id: 9, name: "전구", level: 2, points: 2, category: "무드 & 집중 조명" },
             { id: 19, name: "LED 스탠드 A", level: 4, points: 4, category: "무드 & 집중 조명" },
             { id: 20, name: "LED 스탠드 B", level: 4, points: 4, category: "무드 & 집중 조명" },
             
-            // 데스크 액세서리
+            // 데스크 액세서리 (레벨순)
             { id: 3, name: "가습기", level: 1.5, points: 1.5, category: "데스크 액세서리" },
             { id: 7, name: "무선충전기", level: 2, points: 2, category: "데스크 액세서리" },
             { id: 8, name: "탁상용 선풍기", level: 2, points: 2, category: "데스크 액세서리" },
             
-            // 보조 아이템
+            // 보조 아이템 (레벨순)
             { id: 2, name: "손목받침대", level: 1, points: 1, category: "보조 아이템" },
             { id: 12, name: "모니터받침대", level: 2, points: 2, category: "보조 아이템" },
             { id: 15, name: "발받침대", level: 3, points: 3, category: "보조 아이템" },
             
-            // 디바이스 거치대
+            // 디바이스 거치대 (레벨순)
             { id: 4, name: "노트북 거치대", level: 1.5, points: 1.5, category: "디바이스 거치대" },
             { id: 5, name: "독서대", level: 1.5, points: 1.5, category: "디바이스 거치대" },
             { id: 11, name: "핸드폰 거치대", level: 2, points: 2, category: "디바이스 거치대" },
             
-            // 프리미엄 아이템
-            { id: 21, name: "마사지기", level: 5, points: 5, category: "프리미엄 아이템" },
+            // 프리미엄 아이템 (레벨순)
             { id: 22, name: "모니터암", level: 4.5, points: 4.5, category: "프리미엄 아이템" },
+            { id: 21, name: "마사지기", level: 5, points: 5, category: "프리미엄 아이템" },
             { id: 23, name: "포터블 모니터", level: 5, points: 5, category: "프리미엄 아이템" }
         ];
 
@@ -445,9 +445,29 @@
                         <div class="p-6 pt-16">
                             <h3 class="text-lg font-semibold mb-2 text-white">${item.name}</h3>
                             <div class="flex items-center justify-between mb-4">
-                                <div class="text-lg font-semibold text-yellow-400">
-                                    Level ${item.level}
-                                </div>
+                                ${item.id === 1 ? `
+                                    <a href="https://www.notion.so/supercent/22593b2d257380a398aeeaa2b5adf34f?source=copy_link" 
+                                       target="_blank" 
+                                       class="text-xs bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-3 py-1 rounded-full transition-all duration-200 shadow-sm">
+                                        자세히 보기
+                                    </a>
+                                ` : item.id === 13 ? `
+                                    <a href="https://www.notion.so/supercent/A-22593b2d257380118ceced24262ea8cb?source=copy_link" 
+                                       target="_blank" 
+                                       class="text-xs bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-3 py-1 rounded-full transition-all duration-200 shadow-sm">
+                                        자세히 보기
+                                    </a>
+                                ` : item.id === 14 ? `
+                                    <a href="https://www.notion.so/supercent/B-22593b2d2573806ab28fd600752145b0?source=copy_link" 
+                                       target="_blank" 
+                                       class="text-xs bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white px-3 py-1 rounded-full transition-all duration-200 shadow-sm">
+                                        자세히 보기
+                                    </a>
+                                ` : `
+                                    <div class="text-xs bg-gradient-to-r from-pink-500 to-purple-500 text-white px-3 py-1 rounded-full shadow-sm">
+                                        자세히 보기
+                                    </div>
+                                `}
                                 <div class="text-purple-300 text-sm">
                                     ${item.points} 점
                                 </div>
